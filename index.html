@@ -18,10 +18,18 @@
             --gold: #ffd700;
         }
 
+        /* Yahan mobile horizontal scroll rokne ke liye optimize kiya */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--dark); 
-            overflow-x: hidden;
             color: white;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
@@ -154,18 +162,16 @@
         .love-shade { color: #ff4d6d !important; } 
         .you-shade { color: #80e5ff !important; }
 
-        /* --- REVEAL ANIMATION --- */
+        /* --- REVEAL ANIMATION (MOBILE OPTIMIZED: REMOVED HEAVY BLUR) --- */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            filter: blur(4px); 
-            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
             will-change: transform, opacity;
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-            filter: blur(0px);
         }
 
         /* --- CHAT BUBBLES --- */
@@ -195,12 +201,14 @@
             will-change: transform, opacity;
         }
 
+        /* --- GLASS EFFECT (MOBILE OPTIMIZED BLUR) --- */
         .card-glass {
             background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease;
         }
 
@@ -240,8 +248,7 @@
             margin: 0 auto;
             cursor: pointer;
             z-index: 20;
-            /* Prevent default touch actions like scrolling when swiping on cake */
-            touch-action: pan-x; 
+            /* Yahan se 'touch-action: pan-x' hata diya jisse mobile par scroll nahi atak raha tha */
         }
         .cake-group {
             position: absolute;
@@ -386,7 +393,8 @@
         }
         .polaroid img {
             width: 100%;
-            height: 350px;
+            /* Photo ka perfect polaroid ratio jisse cropping/stretch issue theek ho jayega */
+            aspect-ratio: 4 / 5;
             object-fit: cover;
             border-radius: 4px;
         }
@@ -570,12 +578,12 @@
         <section class="relative py-16 md:py-32">
             <h2 class="text-5xl md:text-6xl text-pink-400 text-center mb-12 md:mb-24 font-cursive">Moments of Yours 📸</h2>
             <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full">
-                <div class="reveal"><div class="polaroid rotate-3"><img src="https://iili.io/qqv1gPj.md.jpg" alt="Chitra 1"><p>Tera Muskurata Chehra</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-3"><img src="https://iili.io/qqv16cQ.md.jpg" alt="Chitra 2"><p>Woh Pyaari Aankhen</p></div></div>
-                <div class="reveal"><div class="polaroid rotate-6"><img src="https://iili.io/qqv1sHB.md.jpg" alt="Chitra 3"><p>Sath Ka Ehsaas</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-6"><img src="https://iili.io/qqv1UMb.md.jpg" alt="Chitra 4"><p>Beautiful Soul</p></div></div>
-                <div class="reveal"><div class="polaroid rotate-2"><img src="https://iili.io/qqv14Kx.jpg" alt="Chitra 5"><p>Infinite Love</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-2"><img src="https://iili.io/qqv1PSV.md.webp" alt="Chitra 6"><p>Always Yours</p></div></div>
+                <div class="reveal"><div class="polaroid rotate-3"><img src="https://iili.io/qqv1gPj.md.jpg" alt="Chitra 1"><p>Uff ye muskaan... 🫠</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-3"><img src="https://iili.io/qqv16cQ.md.jpg" alt="Chitra 2"><p>Mera sukoon ✨</p></div></div>
+                <div class="reveal"><div class="polaroid rotate-6"><img src="https://iili.io/qqv1sHB.md.jpg" alt="Chitra 3"><p>Nazar na lage meri jaan ko 🧿</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-6"><img src="https://iili.io/qqv1UMb.md.jpg" alt="Chitra 4"><p>Mera Masterpiece 🎨❤️</p></div></div>
+                <div class="reveal"><div class="polaroid rotate-2"><img src="https://iili.io/qqv14Kx.jpg" alt="Chitra 5"><p>Sabse pyari ladki 🌸</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-2"><img src="https://iili.io/qqv1PSV.md.webp" alt="Chitra 6"><p>Sirf aur sirf Meri 🫶🏻</p></div></div>
             </div>
         </section>
 
@@ -1019,13 +1027,24 @@
             grid.appendChild(div);
         });
 
-        // --- DODGING BUTTON ---
+        // --- DODGING BUTTON (MOBILE OPTIMIZED) ---
         const noBtn = document.getElementById('no-btn');
-        noBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * 300 - 150; const y = Math.random() * 300 - 150;
+        
+        const moveNoBtn = (e) => {
+            if(e) e.preventDefault();
+            
+            // Mobile par kam move karega (max 60px), PC par zyada (max 150px)
+            const safeRadius = window.innerWidth < 768 ? 60 : 150;
+            const x = (Math.random() - 0.5) * safeRadius * 2; 
+            const y = (Math.random() - 0.5) * safeRadius * 2;
+            
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
             noBtn.innerText = "Koshish karle! 😂";
-        });
+        };
+
+        // Hover for PC, Touchstart for Mobile
+        noBtn.addEventListener('mouseover', moveNoBtn);
+        noBtn.addEventListener('touchstart', moveNoBtn, {passive: false});
 
         document.getElementById('yes-btn').addEventListener('click', () => {
             document.getElementById('btn-container').style.display = 'none';
@@ -1107,7 +1126,8 @@
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         function createHeart() {
-            if (document.querySelectorAll('.heart').length > 25) return;
+            // Memory lag theek karne ke max limit kam ki
+            if (document.querySelectorAll('.heart').length > 15) return;
 
             const container = document.getElementById('hearts-container');
             if (!container) return;
@@ -1115,7 +1135,8 @@
             const h = document.createElement('div');
             h.innerHTML = Math.random() > 0.5 ? '💖' : '❤️';
             h.className = 'heart';
-            h.style.left = Math.random() * 100 + 'vw';
+            // Edge overlap theek kiya (2vw to 92vw tak rakha bas)
+            h.style.left = (Math.random() * 90 + 2) + 'vw';
             h.style.fontSize = Math.random() * 20 + 20 + 'px';
             
             const animDuration = Math.random() * 7 + 5;
@@ -1128,14 +1149,15 @@
             
             // Trigger animation in next frame
             requestAnimationFrame(() => {
-                h.style.transform = `translate3d(${Math.random() * 60 - 30}px, -20vh, 0)`;
+                h.style.transform = `translate3d(${Math.random() * 40 - 20}px, -20vh, 0)`;
                 h.style.transition = `transform ${animDuration}s linear, opacity ${animDuration}s linear`;
                 h.style.opacity = '0';
             });
             
             setTimeout(() => { if (h && h.parentNode) h.remove(); }, animDuration * 1000);
         }
-        setInterval(createHeart, 600);
+        // Spawn interval badha diya taaki battery kam khaye mobile pe
+        setInterval(createHeart, 1000);
     </script>
 </body>
 </html>
