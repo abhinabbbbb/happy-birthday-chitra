@@ -1,1163 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Happy Birthday & Valentine's Chitra! 💍❤️</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-    <style>
-        :root {
-            --primary: #ff4d6d;
-            --secondary: #ffb3c6;
-            --dark: #3d0814;
-            --gold: #ffd700;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday & Valentine's Chitra! 💍❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ffb3c6;
+            --dark: #3d0814;
+            --gold: #ffd700;
+        }
 
-        /* Yahan mobile horizontal scroll rokne ke liye optimize kiya */
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
-            margin: 0;
-            padding: 0;
-        }
+        /* Yahan mobile horizontal scroll rokne ke liye optimize kiya */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--dark); 
-            color: white;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            transition: background 1s ease-in-out;
-        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark); 
+            color: white;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            transition: background 1s ease-in-out;
+        }
 
-        /* --- AMBIENT LIGHTING FOR CANDLE --- */
-        .ambient-dark {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.85) 100%);
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            pointer-events: none;
-            z-index: 5;
-        }
-        body.room-is-dark .ambient-dark {
-            opacity: 1;
-        }
-        body.room-is-dark {
-            background: #1a0208;
-        }
+        /* --- AMBIENT LIGHTING FOR CANDLE --- */
+        .ambient-dark {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.85) 100%);
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            pointer-events: none;
+            z-index: 5;
+        }
+        body.room-is-dark .ambient-dark {
+            opacity: 1;
+        }
+        body.room-is-dark {
+            background: #1a0208;
+        }
 
-        /* --- LUXURY MOUSE GLOW (OPTIMIZED FOR NO LAG) --- */
-        #cursor-glow {
-            position: fixed;
-            left: 0; top: 0;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 77, 109, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            will-change: transform;
-            display: none;
-        }
+        /* --- LUXURY MOUSE GLOW (OPTIMIZED FOR NO LAG) --- */
+        #cursor-glow {
+            position: fixed;
+            left: 0; top: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 77, 109, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform;
+            display: none;
+        }
 
-        .mood-happy { background: radial-gradient(circle at center, #9e1b32 0%, #3d0814 100%); }
-        .mood-emotional { background: radial-gradient(circle at center, #6a1b9a 0%, #210535 100%); }
-        .mood-climax { background: radial-gradient(circle at center, #afb42b 0%, #3d0814 100%); }
+        .mood-happy { background: radial-gradient(circle at center, #9e1b32 0%, #3d0814 100%); }
+        .mood-emotional { background: radial-gradient(circle at center, #6a1b9a 0%, #210535 100%); }
+        .mood-climax { background: radial-gradient(circle at center, #afb42b 0%, #3d0814 100%); }
 
-        h1, h2, h3 { font-family: 'Great Vibes', cursive; }
-        
-        .romantic-text { font-family: 'Caveat', cursive; color: #ffeef2; }
+        h1, h2, h3 { font-family: 'Great Vibes', cursive; }
+        
+        .romantic-text { font-family: 'Caveat', cursive; color: #ffeef2; }
 
-        /* --- SPOTLIGHT LYRICS --- */
-        #lyrics-container {
-            position: fixed;
-            top: 25%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0);
-            width: 95%;
-            max-width: 1000px;
-            text-align: center;
-            z-index: 2000;
-            display: none;
-            pointer-events: none;
-        }
+        /* --- SPOTLIGHT LYRICS --- */
+        #lyrics-container {
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 95%;
+            max-width: 1000px;
+            text-align: center;
+            z-index: 2000;
+            display: none;
+            pointer-events: none;
+        }
 
-        #lyric-aura {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0);
-            width: 80vw;
-            max-width: 600px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 100, 130, 0.3) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: -1;
-            will-change: opacity;
-        }
+        #lyric-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 80vw;
+            max-width: 600px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 100, 130, 0.3) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            will-change: opacity;
+        }
 
-        .lyric-line-wrapper {
-            position: relative;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .lyric-line-wrapper {
+            position: relative;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-        .lyric-text {
-            font-family: 'Great Vibes', cursive, sans-serif;
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.45); 
-            line-height: 1.3;
-            display: inline-block;
-            position: absolute;
-            width: 100%;
-        }
-        @media (min-width: 768px) { .lyric-text { font-size: 3.5rem; } }
+        .lyric-text {
+            font-family: 'Great Vibes', cursive, sans-serif;
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.45); 
+            line-height: 1.3;
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+        }
+        @media (min-width: 768px) { .lyric-text { font-size: 3.5rem; } }
 
-        .lyric-word {
-            display: inline-block;
-            margin-right: 0.3em;
-            transition: all 0.3s ease;
-            position: relative;
-            filter: blur(1px);
-            opacity: 0.5;
-            will-change: transform, opacity, filter;
-        }
+        .lyric-word {
+            display: inline-block;
+            margin-right: 0.3em;
+            transition: all 0.3s ease;
+            position: relative;
+            filter: blur(1px);
+            opacity: 0.5;
+            will-change: transform, opacity, filter;
+        }
 
-        .focused-word {
-            color: #ffffff !important;
-            filter: blur(0px) !important;
-            transform: scale(1.1) translateZ(0);
-            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 77, 109, 0.8);
-            z-index: 10;
-            opacity: 1 !important;
-        }
+        .focused-word {
+            color: #ffffff !important;
+            filter: blur(0px) !important;
+            transform: scale(1.1) translateZ(0);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 77, 109, 0.8);
+            z-index: 10;
+            opacity: 1 !important;
+        }
 
-        .focused-word::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 5%;
-            width: 90%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff4d6d, transparent);
-            animation: glow-line 1.2s infinite alternate;
-        }
+        .focused-word::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff4d6d, transparent);
+            animation: glow-line 1.2s infinite alternate;
+        }
 
-        @keyframes glow-line {
-            from { opacity: 0.4; transform: scaleX(0.7); }
-            to { opacity: 1; transform: scaleX(1.4); }
-        }
+        @keyframes glow-line {
+            from { opacity: 0.4; transform: scaleX(0.7); }
+            to { opacity: 1; transform: scaleX(1.4); }
+        }
 
-        .lyric-char { display: inline-block; opacity: 0; transform: translateY(8px); will-change: transform, opacity; }
-        .name-shade { color: #ffb3c6 !important; } 
-        .love-shade { color: #ff4d6d !important; } 
-        .you-shade { color: #80e5ff !important; }
+        .lyric-char { display: inline-block; opacity: 0; transform: translateY(8px); will-change: transform, opacity; }
+        .name-shade { color: #ffb3c6 !important; } 
+        .love-shade { color: #ff4d6d !important; } 
+        .you-shade { color: #80e5ff !important; }
 
-        /* --- REVEAL ANIMATION (MOBILE OPTIMIZED: REMOVED HEAVY BLUR) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-            will-change: transform, opacity;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* --- REVEAL ANIMATION (MOBILE OPTIMIZED: REMOVED HEAVY BLUR) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            will-change: transform, opacity;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* --- CHAT BUBBLES --- */
-        .chat-bubble { 
-            opacity: 0;
-            will-change: transform, opacity;
-            max-width: 90%;
-            font-size: 1rem;
-        }
-        @media (min-width: 768px) { .chat-bubble { max-width: 80%; font-size: 1.15rem; } }
-        .chat-left { transform: translateX(-40px) scale(0.9); background: rgba(255, 255, 255, 0.15); align-self: flex-start; border-radius: 1.5rem 1.5rem 1.5rem 0; }
-        .chat-right { transform: translateX(40px) scale(0.9); background: #ff1a53; align-self: flex-end; border-radius: 1.5rem 1.5rem 0 1.5rem; }
-        .chat-word { display: inline-block; opacity: 0; transform: translateY(5px); }
+        /* --- CHAT BUBBLES --- */
+        .chat-bubble { 
+            opacity: 0;
+            will-change: transform, opacity;
+            max-width: 90%;
+            font-size: 1rem;
+        }
+        @media (min-width: 768px) { .chat-bubble { max-width: 80%; font-size: 1.15rem; } }
+        .chat-left { transform: translateX(-40px) scale(0.9); background: rgba(255, 255, 255, 0.15); align-self: flex-start; border-radius: 1.5rem 1.5rem 1.5rem 0; }
+        .chat-right { transform: translateX(40px) scale(0.9); background: #ff1a53; align-self: flex-end; border-radius: 1.5rem 1.5rem 0 1.5rem; }
+        .chat-word { display: inline-block; opacity: 0; transform: translateY(5px); }
 
-        .tilt-card { transform-style: preserve-3d; perspective: 1000px; }
-        .silk-word { display: inline-block; opacity: 0; transform: translateY(10px); filter: blur(3px); }
+        .tilt-card { transform-style: preserve-3d; perspective: 1000px; }
+        .silk-word { display: inline-block; opacity: 0; transform: translateY(10px); filter: blur(3px); }
 
-        /* --- FLOATING HEARTS (OPTIMIZED) --- */
-        .heart {
-            position: absolute;
-            font-size: 1.5rem;
-            color: rgba(255, 133, 162, 0.8); 
-            z-index: 50;
-            pointer-events: none;
-            user-select: none;
-            top: 0;
-            will-change: transform, opacity;
-        }
+        /* --- FLOATING HEARTS (OPTIMIZED) --- */
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 133, 162, 0.8); 
+            z-index: 50;
+            pointer-events: none;
+            user-select: none;
+            top: 0;
+            will-change: transform, opacity;
+        }
 
-        /* --- GLASS EFFECT (MOBILE OPTIMIZED BLUR) --- */
-        .card-glass {
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2.5rem;
-            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-        }
+        /* --- GLASS EFFECT (MOBILE OPTIMIZED BLUR) --- */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2.5rem;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
 
-        section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 60px 20px; position: relative; z-index: 10; width: 100%; }
+        section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 60px 20px; position: relative; z-index: 10; width: 100%; }
 
-        .btn-magic {
-            background: linear-gradient(135deg, var(--primary), #c9184a);
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 800;
-            box-shadow: 0 10px 40px rgba(255, 77, 109, 0.6);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-        .btn-magic:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
+        .btn-magic {
+            background: linear-gradient(135deg, var(--primary), #c9184a);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            box-shadow: 0 10px 40px rgba(255, 77, 109, 0.6);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .btn-magic:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
 
-        /* HEARTBEAT ANIMATION FOR YES BUTTON */
-        .heartbeat-btn {
-            animation: heartbeat 1.5s infinite;
-        }
-        @keyframes heartbeat {
-            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
-            14% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
-            28% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
-            42% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
-            70% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
-        }
+        /* HEARTBEAT ANIMATION FOR YES BUTTON */
+        .heartbeat-btn {
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
+            14% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
+            28% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
+            42% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8); }
+            70% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4); }
+        }
 
-        #no-btn { z-index: 1000; touch-action: none; user-select: none; position: relative; transition: transform 0.2s ease; }
+        #no-btn { z-index: 1000; touch-action: none; user-select: none; position: relative; transition: transform 0.2s ease; }
 
-        /* --- 3D CAKE EVOLUTION --- */
-        .cake-container-3d {
-            perspective: 1500px;
-            width: 300px;
-            height: 250px;
-            position: relative;
-            margin: 0 auto;
-            cursor: pointer;
-            z-index: 20;
-            /* Yahan se 'touch-action: pan-x' hata diya jisse mobile par scroll nahi atak raha tha */
-        }
-        .cake-group {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 240px;
-            height: 100px;
-            display: flex;
-            transform-style: preserve-3d;
-            z-index: 5;
-        }
-        .cake-half {
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to bottom, #ff758c, #ff4d6d);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .cake-split-left {
-            border-radius: 15px 0 0 15px;
-            transform-origin: center right;
-            box-shadow: -10px 15px 20px rgba(0,0,0,0.3);
-        }
-        .cake-split-right {
-            border-radius: 0 15px 15px 0;
-            transform-origin: center left;
-            box-shadow: 10px 15px 20px rgba(0,0,0,0.3);
-        }
-        .cake-top-cream {
-            position: absolute;
-            top: -15px;
-            width: 100%;
-            height: 30px;
-            background: #fff;
-            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1);
-        }
-        .cake-split-left .cake-top-cream { border-radius: 15px 0 0 0; }
-        .cake-split-right .cake-top-cream { border-radius: 0 15px 0 0; }
-        
-        .cake-inner-filling {
-            position: absolute;
-            top: 40%;
-            width: 100%;
-            height: 12px;
-            background: rgba(255,255,255,0.7);
-        }
+        /* --- 3D CAKE EVOLUTION --- */
+        .cake-container-3d {
+            perspective: 1500px;
+            width: 300px;
+            height: 250px;
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+            z-index: 20;
+        }
+        .cake-group {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 240px;
+            height: 100px;
+            display: flex;
+            transform-style: preserve-3d;
+            z-index: 5;
+        }
+        .cake-half {
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff758c, #ff4d6d);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .cake-split-left {
+            border-radius: 15px 0 0 15px;
+            transform-origin: center right;
+            box-shadow: -10px 15px 20px rgba(0,0,0,0.3);
+        }
+        .cake-split-right {
+            border-radius: 0 15px 15px 0;
+            transform-origin: center left;
+            box-shadow: 10px 15px 20px rgba(0,0,0,0.3);
+        }
+        .cake-top-cream {
+            position: absolute;
+            top: -15px;
+            width: 100%;
+            height: 30px;
+            background: #fff;
+            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1);
+        }
+        .cake-split-left .cake-top-cream { border-radius: 15px 0 0 0; }
+        .cake-split-right .cake-top-cream { border-radius: 0 15px 0 0; }
+        
+        .cake-inner-filling {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            height: 12px;
+            background: rgba(255,255,255,0.7);
+        }
 
-        .candle-stick {
-            position: absolute;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 14px;
-            height: 60px;
-            background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ffb3c6 10px, #ffb3c6 20px);
-            border-radius: 3px;
-            z-index: 10;
-            transition: opacity 0.3s;
-        }
-        
-        /* THE BIG FLAME GLOW */
-        .candle-flame-pro {
-            position: absolute;
-            top: -45px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 35px;
-            background: radial-gradient(circle at center, #fff, #ffd700, #ff4500);
-            border-radius: 50% 50% 20% 20%;
-            opacity: 0;
-            filter: blur(1px);
-            /* Massive glow when lit */
-            box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.6), 0 0 100px 40px rgba(255, 69, 0, 0.4);
-            animation: flicker 0.1s infinite alternate;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            transform-origin: bottom center;
-            z-index: 100;
-        }
+        .candle-stick {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 60px;
+            background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ffb3c6 10px, #ffb3c6 20px);
+            border-radius: 3px;
+            z-index: 10;
+            transition: opacity 0.3s;
+        }
+        
+        /* THE BIG FLAME GLOW */
+        .candle-flame-pro {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 35px;
+            background: radial-gradient(circle at center, #fff, #ffd700, #ff4500);
+            border-radius: 50% 50% 20% 20%;
+            opacity: 0;
+            filter: blur(1px);
+            /* Massive glow when lit */
+            box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.6), 0 0 100px 40px rgba(255, 69, 0, 0.4);
+            animation: flicker 0.1s infinite alternate;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform-origin: bottom center;
+            z-index: 100;
+        }
 
-        /* --- EFFECTS: SMOKE & SPARK --- */
-        .smoke-particle {
-            position: absolute;
-            top: -45px;
-            left: 50%;
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            filter: blur(3px);
-            opacity: 0;
-            pointer-events: none;
-            z-index: 11;
-        }
+        /* --- EFFECTS: SMOKE & SPARK --- */
+        .smoke-particle {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            filter: blur(3px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 11;
+        }
 
-        .light-spark {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 9;
-        }
+        .light-spark {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9;
+        }
 
-        .knife-pro {
-            position: absolute;
-            font-size: 4rem;
-            z-index: 100;
-            opacity: 0;
-            pointer-events: none;
-            right: -20px;
-            top: -40px;
-            transform: rotate(-20deg);
-            transition: all 0.5s ease;
-        }
-        .knife-pro.ready { opacity: 1; right: 40px; }
-        .knife-pro.slicing { animation: sliceDown 0.5s forwards; }
+        .knife-pro {
+            position: absolute;
+            font-size: 4rem;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            right: -20px;
+            top: -40px;
+            transform: rotate(-20deg);
+            transition: all 0.5s ease;
+        }
+        .knife-pro.ready { opacity: 1; right: 40px; }
+        .knife-pro.slicing { animation: sliceDown 0.5s forwards; }
 
-        @keyframes sliceDown {
-            0% { transform: translate(0, 0) rotate(-20deg); }
-            50% { transform: translate(-100px, 120px) rotate(-70deg); }
-            100% { transform: translate(-100px, 200px) rotate(-70deg); opacity: 0; }
-        }
+        @keyframes sliceDown {
+            0% { transform: translate(0, 0) rotate(-20deg); }
+            50% { transform: translate(-100px, 120px) rotate(-70deg); }
+            100% { transform: translate(-100px, 200px) rotate(-70deg); opacity: 0; }
+        }
 
-        @keyframes flicker { 0% { transform: translateX(-50%) scale(1); } 100% { transform: translateX(-50%) scale(1.1) rotate(3deg); } }
+        @keyframes flicker { 0% { transform: translateX(-50%) scale(1); } 100% { transform: translateX(-50%) scale(1.1) rotate(3deg); } }
 
-        /* Polaroid Hover Effect */
-        .polaroid {
-            background: white;
-            padding: 15px 15px 40px 15px;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.4s ease;
-            position: relative;
-        }
-        .polaroid img {
-            width: 100%;
-            /* Photo ka perfect polaroid ratio jisse cropping/stretch issue theek ho jayega */
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .polaroid p {
-            font-family: 'Caveat', cursive;
-            color: #333;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-top: 15px;
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            left: 0;
-        }
-        .polaroid:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
-    </style>
+        /* Polaroid Hover Effect */
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+        .polaroid img {
+            width: 100%;
+            /* Photo ka perfect polaroid ratio jisse cropping/stretch issue theek ho jayega */
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .polaroid p {
+            font-family: 'Caveat', cursive;
+            color: #333;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 15px;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            left: 0;
+        }
+        .polaroid:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+    </style>
 </head>
 <body class="mood-happy">
 
-    <div class="ambient-dark"></div> <!-- Ambient dark overlay for candle -->
-    <div id="cursor-glow"></div>
-    <div id="hearts-container" class="fixed inset-0 pointer-events-none z-40"></div>
+    <div class="ambient-dark"></div> <!-- Ambient dark overlay for candle -->
+    <div id="cursor-glow"></div>
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none z-40"></div>
 
-    <audio id="bg-music" src="https://res.cloudinary.com/din9cqfkt/video/upload/v1771009121/Stephen_Sanchez_Until_I_Found_You_Official_Video_nurf5u.mp3" preload="auto"></audio>
+    <audio id="bg-music" src="https://res.cloudinary.com/din9cqfkt/video/upload/v1771009121/Stephen_Sanchez_Until_I_Found_You_Official_Video_nurf5u.mp3" preload="auto"></audio>
 
-    <div id="lyrics-container">
-        <div id="lyric-aura"></div>
-        <div id="lyric-wrapper" class="lyric-line-wrapper"></div>
-    </div>
+    <div id="lyrics-container">
+        <div id="lyric-aura"></div>
+        <div id="lyric-wrapper" class="lyric-line-wrapper"></div>
+    </div>
 
-    <!-- (1) Landing Page (With Mysterious Mic Permission) -->
-    <div id="landing-page" class="fixed inset-0 z-[5000] flex flex-col items-center justify-center bg-black text-center p-4 md:p-6 transition-all duration-1000">
-        
-        <!-- Step 1: Initial Entry -->
-        <div id="landing-step-1" class="flex flex-col items-center">
-            <div class="relative z-10 mb-8 md:mb-12">
-                <h1 class="text-6xl sm:text-8xl md:text-[12rem] text-white drop-shadow-2xl animate-pulse font-cursive">Chitra</h1>
-                <p class="romantic-text text-pink-100 mt-2 md:mt-4 italic text-lg md:text-xl px-2">A special birthday surprise for my favorite person... 🎂✨</p>
-            </div>
-            <button id="magic-btn" class="btn-magic text-white text-xl md:text-3xl px-8 py-4">Enter Magic 🎈</button>
-        </div>
+    <!-- (1) Landing Page (With Mysterious Mic Permission) -->
+    <div id="landing-page" class="fixed inset-0 z-[5000] flex flex-col items-center justify-center bg-black text-center p-4 md:p-6 transition-all duration-1000">
+        
+        <!-- Step 1: Initial Entry -->
+        <div id="landing-step-1" class="flex flex-col items-center">
+            <div class="relative z-10 mb-8 md:mb-12">
+                <h1 class="text-6xl sm:text-8xl md:text-[12rem] text-white drop-shadow-2xl animate-pulse font-cursive">Chitra</h1>
+                <p class="romantic-text text-pink-100 mt-2 md:mt-4 italic text-lg md:text-xl px-2">A special birthday surprise for my favorite person... 🎂✨</p>
+            </div>
+            <button id="magic-btn" class="btn-magic text-white text-xl md:text-3xl px-8 py-4">Enter Magic 🎈</button>
+        </div>
 
-        <!-- Step 2: Mic Permission Request (Mysterious) -->
-        <div id="landing-step-2" class="hidden flex-col items-center max-w-3xl px-4">
-            <div class="text-5xl md:text-6xl mb-4 md:mb-6 animate-pulse">✨</div>
-            <p class="romantic-text text-2xl md:text-5xl text-pink-200 mb-6 md:mb-8 leading-relaxed">
-                Aage ka safar thoda magical hone wala hai meri Chinu... 🥺<br>
-                Kuch magic tricks ke liye bas tumhari permission chahiye!<br>
-                <span class="text-pink-400 font-bold mt-4 block text-xl md:text-3xl">Please mic allow kar dena meri jaan... ❤️ (Surprise hai!)</span>
-            </p>
-            <button id="allow-mic-btn" class="btn-magic text-white text-lg md:text-2xl mt-2 md:mt-4 px-6 py-3 md:px-8 md:py-4">Theek Hai, Allow Karungi! ✨</button>
-        </div>
-        
-    </div>
+        <!-- Step 2: Mic Permission Request (Mysterious) -->
+        <div id="landing-step-2" class="hidden flex-col items-center max-w-3xl px-4">
+            <div class="text-5xl md:text-6xl mb-4 md:mb-6 animate-pulse">✨</div>
+            <p class="romantic-text text-2xl md:text-5xl text-pink-200 mb-6 md:mb-8 leading-relaxed">
+                Aage ka safar thoda magical hone wala hai meri Chinu... 🥺<br>
+                Kuch magic tricks ke liye bas tumhari permission chahiye!<br>
+                <span class="text-pink-400 font-bold mt-4 block text-xl md:text-3xl">Please mic allow kar dena meri jaan... ❤️ (Surprise hai!)</span>
+            </p>
+            <button id="allow-mic-btn" class="btn-magic text-white text-lg md:text-2xl mt-2 md:mt-4 px-6 py-3 md:px-8 md:py-4">Theek Hai, Allow Karungi! ✨</button>
+        </div>
+        
+    </div>
 
-    <div id="main-content" class="relative z-10 hidden opacity-0 transition-opacity duration-1000">
-        
-        <!-- Hero Section -->
-        <header class="h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
-            <div class="reveal">
-                <h1 class="text-6xl sm:text-8xl md:text-[10rem] text-pink-50 mb-2 md:mb-4 drop-shadow-2xl font-cursive">Meri Chinu... 🫶🏻</h1>
-                <p class="text-sm sm:text-lg md:text-3xl tracking-[0.2em] md:tracking-[0.4em] uppercase text-pink-200 font-light px-2 md:px-4 mt-4 md:mt-0">The Reason My Life Feels Complete</p>
-                <div class="mt-16 md:mt-20 animate-bounce">
-                    <p class="romantic-text opacity-70 text-lg md:text-xl">Scroll karo... bohot kuch kehna hai</p>
-                    <div class="text-3xl md:text-4xl mt-2">↓</div>
-                </div>
-            </div>
-        </header>
+    <div id="main-content" class="relative z-10 hidden opacity-0 transition-opacity duration-1000">
+        
+        <!-- Hero Section -->
+        <header class="h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+            <div class="reveal">
+                <h1 class="text-6xl sm:text-8xl md:text-[10rem] text-pink-50 mb-2 md:mb-4 drop-shadow-2xl font-cursive">Meri Chinu... 🫶🏻</h1>
+                <p class="text-sm sm:text-lg md:text-3xl tracking-[0.2em] md:tracking-[0.4em] uppercase text-pink-200 font-light px-2 md:px-4 mt-4 md:mt-0">The Reason My Life Feels Complete</p>
+                <div class="mt-16 md:mt-20 animate-bounce">
+                    <p class="romantic-text opacity-70 text-lg md:text-xl">Scroll karo... bohot kuch kehna hai</p>
+                    <div class="text-3xl md:text-4xl mt-2">↓</div>
+                </div>
+            </div>
+        </header>
 
-        <!-- Personal Message Section 1 -->
-        <section class="py-12 md:py-20">
-            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 relative overflow-hidden tilt-card w-full">
-                <div class="absolute top-0 right-0 p-4 md:p-8 text-4xl md:text-6xl opacity-10">✍️</div>
-                <h2 class="text-4xl md:text-7xl text-pink-400 mb-6 md:mb-10 font-cursive">Dil Ki Baat... 😡</h2>
-                <div class="romantic-text text-xl md:text-5xl leading-relaxed silk-reveal" 
-                     data-text="Aaj main aapse kuch dil ki baat karna chahta hu... not as bhondu wala ladka, not as attitude wala ladka... but as someone who truly loves you 😝. Pata hai kal se? You are not just a part of my life... you are the reason my life feels complete from now. 🤭💝">
-                </div>
-            </div>
-        </section>
+        <!-- Personal Message Section 1 -->
+        <section class="py-12 md:py-20">
+            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 relative overflow-hidden tilt-card w-full">
+                <div class="absolute top-0 right-0 p-4 md:p-8 text-4xl md:text-6xl opacity-10">✍️</div>
+                <h2 class="text-4xl md:text-7xl text-pink-400 mb-6 md:mb-10 font-cursive">Dil Ki Baat... 😡</h2>
+                <div class="romantic-text text-xl md:text-5xl leading-relaxed silk-reveal" 
+                     data-text="Aaj main aapse kuch dil ki baat karna chahta hu... not as bhondu wala ladka, not as attitude wala ladka... but as someone who truly loves you 😝. Pata hai kal se? You are not just a part of my life... you are the reason my life feels complete from now. 🤭💝">
+                </div>
+            </div>
+        </section>
 
-        <!-- 3D Cake Cutting -->
-        <section class="py-12 md:py-20 relative z-20">
-            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 relative overflow-hidden w-full" style="z-index: 10;">
-                <h2 class="text-4xl md:text-7xl text-pink-400 mb-10 md:mb-16 font-cursive">Happy Birthday Chitra! 🎂</h2>
-                
-                <!-- Cake ko mobile ke liye aur shrink kiya (scale-75) taaki perfect fit ho -->
-                <div class="cake-container-3d transform scale-75 sm:scale-90 md:scale-100" id="cake-interactive-zone">
-                    <div class="knife-pro" id="knife-3d">🔪</div>
-                    
-                    <!-- Candle with smoke and spark effects -->
-                    <div class="candle-stick" id="main-candle">
-                        <div class="light-spark" id="spark-effect"></div>
-                        <div class="candle-flame-pro" id="pro-flame"></div>
-                        <div id="smoke-container"></div>
-                    </div>
-                    
-                    <div class="cake-group" id="cake-anim-group">
-                        <div class="cake-half cake-split-left">
-                            <div class="cake-top-cream"></div>
-                            <div class="cake-inner-filling"></div>
-                        </div>
-                        <div class="cake-half cake-split-right">
-                            <div class="cake-top-cream"></div>
-                            <div class="cake-inner-filling"></div>
-                        </div>
-                    </div>
-                </div>
+        <!-- 3D Cake Cutting -->
+        <section class="py-12 md:py-20 relative z-20">
+            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 relative overflow-hidden w-full" style="z-index: 10;">
+                <h2 class="text-4xl md:text-7xl text-pink-400 mb-10 md:mb-16 font-cursive">Happy Birthday Chitra! 🎂</h2>
+                
+                <!-- Cake ko mobile ke liye aur shrink kiya (scale-75) taaki perfect fit ho -->
+                <div class="cake-container-3d transform scale-75 sm:scale-90 md:scale-100" id="cake-interactive-zone">
+                    <div class="knife-pro" id="knife-3d">🔪</div>
+                    
+                    <!-- Candle with smoke and spark effects -->
+                    <div class="candle-stick" id="main-candle">
+                        <div class="light-spark" id="spark-effect"></div>
+                        <div class="candle-flame-pro" id="pro-flame"></div>
+                        <div id="smoke-container"></div>
+                    </div>
+                    
+                    <div class="cake-group" id="cake-anim-group">
+                        <div class="cake-half cake-split-left">
+                            <div class="cake-top-cream"></div>
+                            <div class="cake-inner-filling"></div>
+                        </div>
+                        <div class="cake-half cake-split-right">
+                            <div class="cake-top-cream"></div>
+                            <div class="cake-inner-filling"></div>
+                        </div>
+                    </div>
+                </div>
 
-                <p id="cake-hint" class="romantic-text text-xl md:text-2xl text-pink-200 mt-6 md:mt-10 bg-white/5 inline-block px-6 py-2 md:px-8 md:py-3 rounded-full cursor-pointer relative z-10 transition-opacity">Tap the candle to light it! 🕯️</p>
-                <div id="cake-final-msg" class="hidden mt-6 md:mt-8 text-2xl md:text-4xl text-pink-400 animate-bounce font-cursive">Tum meri sweetest jalebi ho! 🫠🫶🏻</div>
-            </div>
-        </section>
+                <p id="cake-hint" class="romantic-text text-xl md:text-2xl text-pink-200 mt-6 md:mt-10 bg-white/5 inline-block px-6 py-2 md:px-8 md:py-3 rounded-full cursor-pointer relative z-10 transition-opacity">Tap the candle to light it! 🕯️</p>
+                <div id="cake-final-msg" class="hidden mt-6 md:mt-8 text-2xl md:text-4xl text-pink-400 animate-bounce font-cursive">Tum meri sweetest jalebi ho! 🫠🫶🏻</div>
+            </div>
+        </section>
 
-        <!-- Metaphor Section -->
-        <section class="py-12 md:py-20 bg-black/20">
-            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 border-l-4 md:border-l-8 border-pink-500 tilt-card w-full">
-                <h2 class="text-4xl md:text-6xl text-pink-300 font-cursive mb-8 md:mb-10">You are my... 🫠</h2>
-                <div class="space-y-8 md:space-y-12">
-                    <div class="reveal">
-                        <p class="text-2xl md:text-6xl font-bold text-white mb-2 md:mb-4">Sweetest Jalebi 🫠🫶🏻</p>
-                        <p class="romantic-text text-lg md:text-3xl italic">The cigarette 😝😋 I never want to quit...</p>
-                    </div>
-                    <div class="reveal">
-                        <p class="text-2xl md:text-6xl font-bold text-white mb-2 md:mb-4">Aapki Aankhen 🤭</p>
-                        <p class="romantic-text text-lg md:text-3xl italic silk-reveal" data-text="Mashallah... un aankhon mein maine sab kuch paate hue dekha hai.">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Metaphor Section -->
+        <section class="py-12 md:py-20 bg-black/20">
+            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 border-l-4 md:border-l-8 border-pink-500 tilt-card w-full">
+                <h2 class="text-4xl md:text-6xl text-pink-300 font-cursive mb-8 md:mb-10">You are my... 🫠</h2>
+                <div class="space-y-8 md:space-y-12">
+                    <div class="reveal">
+                        <p class="text-2xl md:text-6xl font-bold text-white mb-2 md:mb-4">Sweetest Jalebi 🫠🫶🏻</p>
+                        <p class="romantic-text text-lg md:text-3xl italic">The cigarette 😝😋 I never want to quit...</p>
+                    </div>
+                    <div class="reveal">
+                        <p class="text-2xl md:text-6xl font-bold text-white mb-2 md:mb-4">Aapki Aankhen 🤭</p>
+                        <p class="romantic-text text-lg md:text-3xl italic silk-reveal" data-text="Mashallah... un aankhon mein maine sab kuch paate hue dekha hai.">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Masterpiece Section -->
-        <section class="bg-pink-900/5 py-12 md:py-20">
-            <div class="card-glass p-6 md:p-24 max-w-4xl reveal text-center mx-4 tilt-card w-full">
-                <h2 class="text-3xl md:text-5xl text-pink-300 mb-6 md:mb-8 font-cursive">You are My Masterpiece... 🎨</h2>
-                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="You are not just pretty, you are the masterpiece my heart found. You are not just good, you are the reason good even exists in my life. ❤️">
-                </div>
-            </div>
-        </section>
+        <!-- Masterpiece Section -->
+        <section class="bg-pink-900/5 py-12 md:py-20">
+            <div class="card-glass p-6 md:p-24 max-w-4xl reveal text-center mx-4 tilt-card w-full">
+                <h2 class="text-3xl md:text-5xl text-pink-300 mb-6 md:mb-8 font-cursive">You are My Masterpiece... 🎨</h2>
+                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="You are not just pretty, you are the masterpiece my heart found. You are not just good, you are the reason good even exists in my life. ❤️">
+                </div>
+            </div>
+        </section>
 
-        <!-- Hindi Poetry Section -->
-        <section class="bg-black/20 py-12 md:py-20">
-            <div class="card-glass p-6 md:p-20 max-w-4xl reveal text-center mx-4 tilt-card w-full">
-                <h2 class="text-4xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-10">Tumhari Aankhein... 🌷</h2>
-                <div class="space-y-4 md:space-y-6 text-base md:text-3xl font-light text-pink-100 leading-relaxed md:leading-loose silk-reveal" data-text="मैंने तुम्हारी आँखों में उन ख़वाबों को चलते हुए देखा है... जलते दिल की सस्कियो पर... ✨ उन आँसुओ को गिरते हुए देखा है... ❤️‍🩹 मैंने तुम्हारी आँखों में खाली मुक़द्दर को भी संजते हुए देखा है... हंसते हुए ख्यालों में अपने हमसफर को गले लगते हुए देखा है... मैंने तुम्हारी आँखों में सब कुछ पाते हुए देखा है...">
-                </div>
-                <p class="text-pink-300 font-bold mt-6 md:mt-8 text-xl md:text-5xl reveal">मैंने तुम्हारी आँखों में तुमसा बेहतर कुछ नहीं देखा है।</p>
-            </div>
-        </section>
+        <!-- Hindi Poetry Section -->
+        <section class="bg-black/20 py-12 md:py-20">
+            <div class="card-glass p-6 md:p-20 max-w-4xl reveal text-center mx-4 tilt-card w-full">
+                <h2 class="text-4xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-10">Tumhari Aankhein... 🌷</h2>
+                <div class="space-y-4 md:space-y-6 text-base md:text-3xl font-light text-pink-100 leading-relaxed md:leading-loose silk-reveal" data-text="मैंने तुम्हारी आँखों में उन ख़वाबों को चलते हुए देखा है... जलते दिल की सस्कियो पर... ✨ उन आँसुओ को गिरते हुए देखा है... ❤️‍🩹 मैंने तुम्हारी आँखों में खाली मुक़द्दर को भी संजते हुए देखा है... हंसते हुए ख्यालों में अपने हमसफर को गले लगते हुए देखा है... मैंने तुम्हारी आँखों में सब कुछ पाते हुए देखा है...">
+                </div>
+                <p class="text-pink-300 font-bold mt-6 md:mt-8 text-xl md:text-5xl reveal">मैंने तुम्हारी आँखों में तुमसा बेहतर कुछ नहीं देखा है।</p>
+            </div>
+        </section>
 
-        <!-- Chat Memories Section -->
-        <section class="flex flex-col items-center py-12 md:py-20">
-            <div class="card-glass p-4 md:p-20 max-w-4xl reveal w-full mx-4 tilt-card" id="chat-tile">
-                <h2 class="text-3xl md:text-5xl text-pink-300 mb-8 md:mb-12 text-center font-cursive">Our Little Chats... ❤️</h2>
-                <div class="w-full flex flex-col space-y-2 md:space-y-4 px-2 md:px-0">
-                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you when I wake up</div>
-                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you when I go to bed</div>
-                    <div class="chat-bubble chat-right p-3 md:p-4 text-sm md:text-base">I love you cause of your smile</div>
-                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you cause of how funny u are</div>
-                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you because how honest you are</div>
-                    <div class="chat-bubble chat-right p-3 md:p-4 text-sm md:text-base">I love you to the moon and back</div>
-                    <div class="chat-bubble chat-right p-3 md:p-4 text-pink-100 font-semibold text-sm md:text-base">And u will be forever mine and I'll forever be yours</div>
-                    <div class="chat-bubble chat-left p-3 md:p-4 text-pink-400 font-bold italic text-sm md:text-base">If your ever sad or mad... I will always be there for u</div>
-                </div>
-            </div>
-        </section>
+        <!-- Chat Memories Section -->
+        <section class="flex flex-col items-center py-12 md:py-20">
+            <div class="card-glass p-4 md:p-20 max-w-4xl reveal w-full mx-4 tilt-card" id="chat-tile">
+                <h2 class="text-3xl md:text-5xl text-pink-300 mb-8 md:mb-12 text-center font-cursive">Our Little Chats... ❤️</h2>
+                <div class="w-full flex flex-col space-y-2 md:space-y-4 px-2 md:px-0">
+                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you when I wake up</div>
+                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you when I go to bed</div>
+                    <div class="chat-bubble chat-right p-3 md:p-4 text-sm md:text-base">I love you cause of your smile</div>
+                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you cause of how funny u are</div>
+                    <div class="chat-bubble chat-left p-3 md:p-4 text-sm md:text-base">I love you because how honest you are</div>
+                    <div class="chat-bubble chat-right p-3 md:p-4 text-sm md:text-base">I love you to the moon and back</div>
+                    <div class="chat-bubble chat-right p-3 md:p-4 text-pink-100 font-semibold text-sm md:text-base">And u will be forever mine and I'll forever be yours</div>
+                    <div class="chat-bubble chat-left p-3 md:p-4 text-pink-400 font-bold italic text-sm md:text-base">If your ever sad or mad... I will always be there for u</div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Daily Rhythm Section -->
-        <section class="bg-black/60 py-12 md:py-20">
-            <div class="card-glass p-6 md:p-20 max-w-4xl reveal text-center mx-4 tilt-card w-full">
-                <h2 class="text-3xl md:text-5xl text-pink-400 font-cursive mb-6 md:mb-10">My Whole Day...</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center">
-                    <div class="p-4 border-b md:border-b-0 md:border-r border-pink-500/20"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Wake Up</h3><p class="text-sm md:text-base text-gray-300">Sabse pehle khyal tumhara.</p></div>
-                    <div class="p-4 border-b md:border-b-0 md:border-r border-pink-500/20"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Noon</h3><p class="text-sm md:text-base text-gray-300">Baaton ka intezar.</p></div>
-                    <div class="p-4"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Night</h3><p class="text-sm md:text-base text-gray-300">Sapne humare sath ke.</p></div>
-                </div>
-            </div>
-        </section>
+        <!-- Daily Rhythm Section -->
+        <section class="bg-black/60 py-12 md:py-20">
+            <div class="card-glass p-6 md:p-20 max-w-4xl reveal text-center mx-4 tilt-card w-full">
+                <h2 class="text-3xl md:text-5xl text-pink-400 font-cursive mb-6 md:mb-10">My Whole Day...</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center">
+                    <div class="p-4 border-b md:border-b-0 md:border-r border-pink-500/20"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Wake Up</h3><p class="text-sm md:text-base text-gray-300">Sabse pehle khyal tumhara.</p></div>
+                    <div class="p-4 border-b md:border-b-0 md:border-r border-pink-500/20"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Noon</h3><p class="text-sm md:text-base text-gray-300">Baaton ka intezar.</p></div>
+                    <div class="p-4"><h3 class="text-pink-300 mb-1 font-bold font-cursive text-lg md:text-xl">Night</h3><p class="text-sm md:text-base text-gray-300">Sapne humare sath ke.</p></div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Polaroid Memories -->
-        <section class="relative py-16 md:py-32">
-            <h2 class="text-5xl md:text-6xl text-pink-400 text-center mb-12 md:mb-24 font-cursive">Moments of Yours 📸</h2>
-            <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full">
-                <div class="reveal"><div class="polaroid rotate-3"><img src="https://iili.io/qqv1gPj.md.jpg" alt="Chitra 1"><p>Uff ye muskaan... 🫠</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-3"><img src="https://iili.io/qqv16cQ.md.jpg" alt="Chitra 2"><p>Mera sukoon ✨</p></div></div>
-                <div class="reveal"><div class="polaroid rotate-6"><img src="https://iili.io/qqv1sHB.md.jpg" alt="Chitra 3"><p>Nazar na lage meri jaan ko 🧿</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-6"><img src="https://iili.io/qqv1UMb.md.jpg" alt="Chitra 4"><p>Mera Masterpiece 🎨❤️</p></div></div>
-                <div class="reveal"><div class="polaroid rotate-2"><img src="https://iili.io/qqv14Kx.jpg" alt="Chitra 5"><p>Sabse pyari ladki 🌸</p></div></div>
-                <div class="reveal"><div class="polaroid -rotate-2"><img src="https://iili.io/qqv1PSV.md.webp" alt="Chitra 6"><p>Sirf aur sirf Meri 🫶🏻</p></div></div>
-            </div>
-        </section>
+        <!-- Polaroid Memories -->
+        <section class="relative py-16 md:py-32">
+            <h2 class="text-5xl md:text-6xl text-pink-400 text-center mb-12 md:mb-24 font-cursive">Moments of Yours 📸</h2>
+            <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full">
+                <div class="reveal"><div class="polaroid rotate-3"><img src="https://iili.io/qqv1gPj.md.jpg" alt="Chitra 1"><p>Tumhari ye masoom si hasi... 🫠</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-3"><img src="https://iili.io/qqv16cQ.md.jpg" alt="Chitra 2"><p>Duniya ki sabse khoobsurat aankhein ✨</p></div></div>
+                <div class="reveal"><div class="polaroid rotate-6"><img src="https://iili.io/qqv1sHB.md.jpg" alt="Chitra 3"><p>Mera chaand zameen par 🌙</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-6"><img src="https://iili.io/qqv1UMb.md.jpg" alt="Chitra 4"><p>Kitni pyari lag rahi ho yaar 🥺❤️</p></div></div>
+                <div class="reveal"><div class="polaroid rotate-2"><img src="https://iili.io/qqv14Kx.jpg" alt="Chitra 5"><p>Mera chota sa bacha 🧸</p></div></div>
+                <div class="reveal"><div class="polaroid -rotate-2"><img src="https://iili.io/qqv1PSV.md.webp" alt="Chitra 6"><p>Tumse pyara koi nahi 🫶🏻</p></div></div>
+            </div>
+        </section>
 
-        <!-- 42 Reasons Section -->
-        <section class="flex flex-col items-center py-12 md:py-20">
-            <h2 class="text-4xl md:text-6xl text-pink-400 text-center mb-10 md:mb-16 font-cursive px-4">42 Reasons Why I Love You</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-7xl mx-auto px-4 w-full" id="reasons-grid"></div>
-        </section>
+        <!-- 42 Reasons Section -->
+        <section class="flex flex-col items-center py-12 md:py-20">
+            <h2 class="text-4xl md:text-6xl text-pink-400 text-center mb-10 md:mb-16 font-cursive px-4">42 Reasons Why I Love You</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-7xl mx-auto px-4 w-full" id="reasons-grid"></div>
+        </section>
 
-        <!-- Final Message Letter -->
-        <section class="py-12 md:py-20">
-            <div class="card-glass p-6 md:p-24 max-w-4xl reveal text-center mx-4 w-full">
-                <h2 class="text-4xl md:text-5xl text-pink-300 font-cursive mb-6 md:mb-8">Ek Vaada... 💍</h2>
-                <div class="romantic-text text-xl md:text-4xl italic leading-relaxed space-y-6 md:space-y-8">
-                    <p class="reveal">I may not be perfect but one thing will not change is my love for you. 🫣🫶🏻</p>
-                    <p class="reveal">Har din mai apko choose karunga aur aaj firse kar raha hu. Meri Chitra, right?</p>
-                    <p class="reveal">Mai promise karta hu I’ll love you and never let you feel alone, I'll try my best to be the perfect one for youu...</p>
-                </div>
-            </div>
-        </section>
+        <!-- Final Message Letter -->
+        <section class="py-12 md:py-20">
+            <div class="card-glass p-6 md:p-24 max-w-4xl reveal text-center mx-4 w-full">
+                <h2 class="text-4xl md:text-5xl text-pink-300 font-cursive mb-6 md:mb-8">Ek Vaada... 💍</h2>
+                <div class="romantic-text text-xl md:text-4xl italic leading-relaxed space-y-6 md:space-y-8">
+                    <p class="reveal">I may not be perfect but one thing will not change is my love for you. 🫣🫶🏻</p>
+                    <p class="reveal">Har din mai apko choose karunga aur aaj firse kar raha hu. Meri Chitra, right?</p>
+                    <p class="reveal">Mai promise karta hu I’ll love you and never let you feel alone, I'll try my best to be the perfect one for youu...</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- NAYA SECTION 1: Hamare Sapne -->
-        <section class="py-12 md:py-20 bg-black/30 relative overflow-hidden">
-            <div class="absolute top-0 right-4 md:right-10 text-6xl md:text-8xl opacity-10 animate-pulse">🌌</div>
-            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-left mx-4 border-r-4 md:border-r-8 border-pink-400 tilt-card w-full">
-                <h2 class="text-3xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-8">Hamare Aane Wale Kal... ✨</h2>
-                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="Main chahta hu ki humari ek choti si duniya ho... jahan subah tumhari muskurahat se shuru ho, aur raat mere kandhe par tumhare sar rakhne se. Jahan har chhoti khushi hum sath milkar manaye aur har gam ko hum apne pyaar se mita dein.">
-                </div>
-            </div>
-        </section>
+        <!-- NAYA SECTION 1: Hamare Sapne -->
+        <section class="py-12 md:py-20 bg-black/30 relative overflow-hidden">
+            <div class="absolute top-0 right-4 md:right-10 text-6xl md:text-8xl opacity-10 animate-pulse">🌌</div>
+            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-left mx-4 border-r-4 md:border-r-8 border-pink-400 tilt-card w-full">
+                <h2 class="text-3xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-8">Hamare Aane Wale Kal... ✨</h2>
+                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="Main chahta hu ki humari ek choti si duniya ho... jahan subah tumhari muskurahat se shuru ho, aur raat mere kandhe par tumhare sar rakhne se. Jahan har chhoti khushi hum sath milkar manaye aur har gam ko hum apne pyaar se mita dein.">
+                </div>
+            </div>
+        </section>
 
-        <!-- NAYA SECTION 2: Roothna aur Manana -->
-        <section class="py-12 md:py-20 relative overflow-hidden">
-            <div class="absolute bottom-10 left-4 md:left-10 text-6xl md:text-8xl opacity-10 animate-bounce">🥺</div>
-            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 border-l-4 md:border-l-8 border-pink-500 tilt-card w-full">
-                <h2 class="text-3xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-8">Roothna aur Manana... 💝</h2>
-                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="Haan mujhe pata hai main kabhi kabhi pagal ban jata hu, thoda gussa bhi karta hu... par trust me Chinu, mera dil sirf tumhare liye dhadakta hai. Tum roothogi toh main hazaar baar manaunga, par tumhe kabhi rone nahi dunga, ye mera promise hai tumse!">
-                </div>
-            </div>
-        </section>
+        <!-- NAYA SECTION 2: Roothna aur Manana -->
+        <section class="py-12 md:py-20 relative overflow-hidden">
+            <div class="absolute bottom-10 left-4 md:left-10 text-6xl md:text-8xl opacity-10 animate-bounce">🥺</div>
+            <div class="card-glass p-6 md:p-24 max-w-5xl reveal text-center mx-4 border-l-4 md:border-l-8 border-pink-500 tilt-card w-full">
+                <h2 class="text-3xl md:text-6xl text-pink-300 font-cursive mb-6 md:mb-8">Roothna aur Manana... 💝</h2>
+                <div class="romantic-text text-lg md:text-4xl leading-relaxed silk-reveal" data-text="Haan mujhe pata hai main kabhi kabhi pagal ban jata hu, thoda gussa bhi karta hu... par trust me Chinu, mera dil sirf tumhare liye dhadakta hai. Tum roothogi toh main hazaar baar manaunga, par tumhe kabhi rone nahi dunga, ye mera promise hai tumse!">
+                </div>
+            </div>
+        </section>
 
-        <!-- Final Proposal (IMPROVED AND MORE GRAND) -->
-        <section class="min-h-screen flex flex-col items-center justify-center relative py-12 md:py-20" id="proposal-section">
-            <!-- Background highlight for proposal -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pink-900/20 to-transparent opacity-50"></div>
-            
-            <div class="reveal w-full flex justify-center px-4 z-10">
-                <div id="proposal-card" class="card-glass p-6 md:p-24 max-w-5xl w-full text-center border-t-4 md:border-t-8 border-pink-500 relative overflow-hidden transition-transform duration-700 hover:scale-[1.02] shadow-[0_0_50px_rgba(255,77,109,0.3)]">
-                    <div class="absolute inset-0 bg-pink-500/10 animate-pulse"></div>
-                    
-                    <!-- Emoji Size aur Layout Fix -->
-                    <h2 class="text-5xl sm:text-6xl md:text-[8rem] text-pink-400 mb-4 md:mb-6 font-cursive drop-shadow-lg flex flex-col items-center justify-center gap-2 md:gap-4">
-                        <span>Chitra...</span>
-                        <span class="text-4xl sm:text-5xl md:text-7xl font-sans" style="line-height: 1;">🥹🫴🏻</span>
-                    </h2>
-                    
-                    <h3 id="proposal-question" class="text-xl sm:text-2xl md:text-5xl mb-8 md:mb-16 font-light leading-relaxed text-white drop-shadow-md">
-                        Will you be my life partner (cringe ki mkc)? <br><br>
-                        <span class="text-pink-300 font-bold text-2xl sm:text-3xl md:text-5xl drop-shadow-[0_0_15px_rgba(255,179,198,0.8)] block mt-2 md:mt-0">Will you be my Valentine… not just for today, but for every day? 💍❤️</span>
-                    </h3>
-                    
-                    <div id="btn-container" class="flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center relative z-20 min-h-[120px]">
-                        <button id="yes-btn" class="btn-magic text-xl md:text-4xl text-white heartbeat-btn px-6 py-4 md:px-10 md:py-5 w-full md:w-auto">HAAN BABA YES! ❤️</button>
-                        <button id="no-btn" class="w-full md:w-48 py-3 md:py-5 bg-gray-700/50 rounded-full font-bold text-lg md:text-2xl text-white shadow-lg relative">No 😒</button>
-                    </div>
-                    <div id="response-msg" class="mt-6 md:mt-8 hidden">
-                        <p class="text-3xl md:text-7xl text-pink-200 font-bold mb-4 md:mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">I KNEW IT! ❤️</p>
-                        <p class="romantic-text text-xl md:text-5xl italic text-white drop-shadow-md px-2">"At the end of the day... It has always been you. And it will always be you." 🥰</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Final Proposal (IMPROVED AND MORE GRAND) -->
+        <section class="min-h-screen flex flex-col items-center justify-center relative py-12 md:py-20" id="proposal-section">
+            <!-- Background highlight for proposal -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pink-900/20 to-transparent opacity-50"></div>
+            
+            <div class="reveal w-full flex justify-center px-4 z-10">
+                <div id="proposal-card" class="card-glass p-6 md:p-24 max-w-5xl w-full text-center border-t-4 md:border-t-8 border-pink-500 relative overflow-hidden transition-transform duration-700 hover:scale-[1.02] shadow-[0_0_50px_rgba(255,77,109,0.3)]">
+                    <div class="absolute inset-0 bg-pink-500/10 animate-pulse"></div>
+                    
+                    <!-- Emoji Size aur Layout Fix -->
+                    <h2 class="text-5xl sm:text-6xl md:text-[8rem] text-pink-400 mb-4 md:mb-6 font-cursive drop-shadow-lg flex flex-col items-center justify-center gap-2 md:gap-4">
+                        <span>Chitra...</span>
+                        <span class="text-4xl sm:text-5xl md:text-7xl font-sans" style="line-height: 1;">🥹🫴🏻</span>
+                    </h2>
+                    
+                    <h3 id="proposal-question" class="text-xl sm:text-2xl md:text-5xl mb-8 md:mb-16 font-light leading-relaxed text-white drop-shadow-md">
+                        Will you be my life partner (cringe ki mkc)? <br><br>
+                        <span class="text-pink-300 font-bold text-2xl sm:text-3xl md:text-5xl drop-shadow-[0_0_15px_rgba(255,179,198,0.8)] block mt-2 md:mt-0">Will you be my Valentine… not just for today, but for every day? 💍❤️</span>
+                    </h3>
+                    
+                    <div id="btn-container" class="flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center relative z-20 min-h-[120px]">
+                        <button id="yes-btn" class="btn-magic text-xl md:text-4xl text-white heartbeat-btn px-6 py-4 md:px-10 md:py-5 w-full md:w-auto">HAAN BABA YES! ❤️</button>
+                        <button id="no-btn" class="w-full md:w-48 py-3 md:py-5 bg-gray-700/50 rounded-full font-bold text-lg md:text-2xl text-white shadow-lg relative">No 😒</button>
+                    </div>
+                    <div id="response-msg" class="mt-6 md:mt-8 hidden">
+                        <p class="text-3xl md:text-7xl text-pink-200 font-bold mb-4 md:mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">I KNEW IT! ❤️</p>
+                        <p class="romantic-text text-xl md:text-5xl italic text-white drop-shadow-md px-2">"At the end of the day... It has always been you. And it will always be you." 🥰</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Yahan Footer aur Script ka error fix kiya hai -->
-        <footer class="py-12 md:py-20 text-center opacity-50 flex flex-col items-center justify-center gap-3 md:gap-4">
-            <p class="text-2xl font-cursive">Forever Yours, Chitra. ❤️ 2026.</p>
-            <a href="https://instagram.com/borntopegged" target="_blank" class="flex items-center gap-2 text-pink-200 hover:text-pink-400 transition-colors cursor-pointer z-50">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                <span class="text-xs font-medium tracking-widest opacity-80">Crafted by borntopegged</span>
-            </a>
-        </footer>
-    </div>
+        <!-- Yahan Footer aur Script ka error fix kiya hai -->
+        <footer class="py-12 md:py-20 text-center opacity-50 flex flex-col items-center justify-center gap-3 md:gap-4">
+            <p class="text-2xl font-cursive">Forever Yours, Chitra. ❤️ 2026.</p>
+            <a href="https://instagram.com/lakshayisdeaf1" target="_blank" class="flex items-center gap-2 text-pink-200 hover:text-pink-400 transition-colors cursor-pointer z-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span class="text-xs font-medium tracking-widest opacity-80">Crafted by lakshayisdeaf1</span>
+            </a>
+        </footer>
+    </div>
 
-    <script>
-        // --- CHOTI CHOTI CHEEZEIN: CLICK SPARKLES ---
-        window.addEventListener('click', (e) => {
-            // Don't block button clicks from native actions
-            if(e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-            
-            confetti({
-                particleCount: 8,
-                spread: 40,
-                startVelocity: 15,
-                colors: ['#ffb3c6', '#ffffff', '#ffd700'],
-                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-                zIndex: 9999,
-                ticks: 60,
-                gravity: 0.5,
-                scalar: 0.5
-            });
-        });
+    <script>
+        // --- CHOTI CHOTI CHEEZEIN: CLICK SPARKLES ---
+        window.addEventListener('click', (e) => {
+            // Don't block button clicks from native actions
+            if(e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+            
+            confetti({
+                particleCount: 8,
+                spread: 40,
+                startVelocity: 15,
+                colors: ['#ffb3c6', '#ffffff', '#ffd700'],
+                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+                zIndex: 9999,
+                ticks: 60,
+                gravity: 0.5,
+                scalar: 0.5
+            });
+        });
 
-        // --- OPTIMIZED CURSOR TRACKER (FIXED LAG) ---
-        const cursor = document.getElementById('cursor-glow');
-        let cursorTicking = false;
-        window.addEventListener('mousemove', (e) => {
-            if (!cursorTicking) {
-                window.requestAnimationFrame(() => {
-                    cursor.style.display = 'block';
-                    // Use hardware accelerated translate3d instead of changing top/left
-                    cursor.style.transform = `translate3d(${e.clientX - 200}px, ${e.clientY - 200}px, 0)`;
-                    cursorTicking = false;
-                });
-                cursorTicking = true;
-            }
-        });
+        // --- OPTIMIZED CURSOR TRACKER (FIXED LAG) ---
+        const cursor = document.getElementById('cursor-glow');
+        let cursorTicking = false;
+        window.addEventListener('mousemove', (e) => {
+            if (!cursorTicking) {
+                window.requestAnimationFrame(() => {
+                    cursor.style.display = 'block';
+                    // Use hardware accelerated translate3d instead of changing top/left
+                    cursor.style.transform = `translate3d(${e.clientX - 200}px, ${e.clientY - 200}px, 0)`;
+                    cursorTicking = false;
+                });
+                cursorTicking = true;
+            }
+        });
 
-        // --- ORIGINAL FULL LYRICS LOGIC ---
-        const lyrics = [
-            { time: 0, text: "", mood: 'happy' },
-            { time: 10.04, text: "Chitra 🌹, wrap me up 🎁 in all your ✨-", mood: 'happy' },
-            { time: 16.71, text: "I want you 🫵 in my arms 🫂", mood: 'happy' },
-            { time: 22.27, text: "Oh, let me hold 🤝 you 🫵", mood: 'happy' },
-            { time: 27.22, text: "I'll never let you 🫵 go 🕊️ again like I did 🚫", mood: 'happy' },
-            { time: 33.33, text: "Oh, I used to say 🗣️", mood: 'happy' },
-            { time: 37.04, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
-            { time: 44.16, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
-            { time: 51.37, text: "I was lost 🧭 within the darkness 🌑, but then I found 🎯 her", mood: 'emotional' },
-            { time: 58.19, text: "I found ✨ you 💍", mood: 'climax' },
-            { time: 64.53, text: "", mood: 'happy' },
-            { time: 67.48, text: "Chitra 🌸, pulled me in ⚓", mood: 'happy' },
-            { time: 72.12, text: "I asked to love 💓 her once again 🔄", mood: 'happy' },
-            { time: 79.22, text: "You 🫵 fell, I caught you 🤲", mood: 'happy' },
-            { time: 84.48, text: "I'll never let you 🫵 go 🕊️ again like I did 🚫", mood: 'happy' },
-            { time: 90.48, text: "Oh, I used to say 🗣️", mood: 'happy' },
-            { time: 94.00, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
-            { time: 101.20, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
-            { time: 108.36, text: "I was lost 🗺️ within the darkness 🌃, but then I found 🔍 her", mood: 'emotional' },
-            { time: 115.03, text: "I found 🌟 you 💏", mood: 'climax' },
-            { time: 121.54, text: "", mood: 'happy' }, 
-            { time: 136.96, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
-            { time: 143.93, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
-            { time: 150.95, text: "I was lost 🗺️ within the darkness 🌃, but then I found 🔍 her", mood: 'emotional' },
-            { time: 157.95, text: "I found 🌟 you 💏", mood: 'climax' },
-            { time: 162.78, text: "Happy Valentine's Day Baby! 🫶🏻", mood: 'climax' },
-            { time: 168.00, text: "", mood: 'happy' } 
-        ];
+        // --- ORIGINAL FULL LYRICS LOGIC ---
+        const lyrics = [
+            { time: 0, text: "", mood: 'happy' },
+            { time: 10.04, text: "Chitra 🌹, wrap me up 🎁 in all your ✨-", mood: 'happy' },
+            { time: 16.71, text: "I want you 🫵 in my arms 🫂", mood: 'happy' },
+            { time: 22.27, text: "Oh, let me hold 🤝 you 🫵", mood: 'happy' },
+            { time: 27.22, text: "I'll never let you 🫵 go 🕊️ again like I did 🚫", mood: 'happy' },
+            { time: 33.33, text: "Oh, I used to say 🗣️", mood: 'happy' },
+            { time: 37.04, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
+            { time: 44.16, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
+            { time: 51.37, text: "I was lost 🧭 within the darkness 🌑, but then I found 🎯 her", mood: 'emotional' },
+            { time: 58.19, text: "I found ✨ you 💍", mood: 'climax' },
+            { time: 64.53, text: "", mood: 'happy' },
+            { time: 67.48, text: "Chitra 🌸, pulled me in ⚓", mood: 'happy' },
+            { time: 72.12, text: "I asked to love 💓 her once again 🔄", mood: 'happy' },
+            { time: 79.22, text: "You 🫵 fell, I caught you 🤲", mood: 'happy' },
+            { time: 84.48, text: "I'll never let you 🫵 go 🕊️ again like I did 🚫", mood: 'happy' },
+            { time: 90.48, text: "Oh, I used to say 🗣️", mood: 'happy' },
+            { time: 94.00, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
+            { time: 101.20, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
+            { time: 108.36, text: "I was lost 🗺️ within the darkness 🌃, but then I found 🔍 her", mood: 'emotional' },
+            { time: 115.03, text: "I found 🌟 you 💏", mood: 'climax' },
+            { time: 121.54, text: "", mood: 'happy' }, 
+            { time: 136.96, text: "\"I would never fall in love ❤️ again until I found 📍 her\"", mood: 'happy' },
+            { time: 143.93, text: "I said, \"I would never fall unless it's you 🫵 I fall into 💘\"", mood: 'happy' },
+            { time: 150.95, text: "I was lost 🗺️ within the darkness 🌃, but then I found 🔍 her", mood: 'emotional' },
+            { time: 157.95, text: "I found 🌟 you 💏", mood: 'climax' },
+            { time: 162.78, text: "Happy Valentine's Day Baby! 🫶🏻", mood: 'climax' },
+            { time: 168.00, text: "", mood: 'happy' } 
+        ];
 
-        let currentLyricIndex = -1;
-        const audio = document.getElementById('bg-music');
-        let highlightTimeouts = [];
+        let currentLyricIndex = -1;
+        const audio = document.getElementById('bg-music');
+        let highlightTimeouts = [];
 
-        function clearAllLyrics() {
-            highlightTimeouts.forEach(clearTimeout);
-            highlightTimeouts = [];
-            const wrapper = document.getElementById('lyric-wrapper');
-            wrapper.innerHTML = '';
-        }
-        
-        function showLyric(text, mood) {
-            const wrapper = document.getElementById('lyric-wrapper');
-            clearAllLyrics();
-            if (!text) return;
+        function clearAllLyrics() {
+            highlightTimeouts.forEach(clearTimeout);
+            highlightTimeouts = [];
+            const wrapper = document.getElementById('lyric-wrapper');
+            wrapper.innerHTML = '';
+        }
+        
+        function showLyric(text, mood) {
+            const wrapper = document.getElementById('lyric-wrapper');
+            clearAllLyrics();
+            if (!text) return;
 
-            document.body.className = `mood-${mood}`;
-            // Preserve dark room class if candle is active
-            if(cakeStep === 1) document.body.classList.add('room-is-dark');
+            document.body.className = `mood-${mood}`;
+            // Preserve dark room class if candle is active
+            if(cakeStep === 1) document.body.classList.add('room-is-dark');
 
-            const lineEl = document.createElement('div');
-            lineEl.className = 'lyric-text current-line';
-            const wordsArr = text.split(' ');
-            
-            wordsArr.forEach((word) => {
-                const wordSpan = document.createElement('span');
-                wordSpan.className = 'lyric-word';
-                const clean = word.toLowerCase().replace(/[",-]/g, '');
-                if (clean.includes('chitra')) wordSpan.classList.add('name-shade');
-                else if (clean.includes('love')) wordSpan.classList.add('love-shade');
-                else if (clean.includes('you')) wordSpan.classList.add('you-shade');
+            const lineEl = document.createElement('div');
+            lineEl.className = 'lyric-text current-line';
+            const wordsArr = text.split(' ');
+            
+            wordsArr.forEach((word) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'lyric-word';
+                const clean = word.toLowerCase().replace(/[",-]/g, '');
+                if (clean.includes('chitra')) wordSpan.classList.add('name-shade');
+                else if (clean.includes('love')) wordSpan.classList.add('love-shade');
+                else if (clean.includes('you')) wordSpan.classList.add('you-shade');
 
-                Array.from(word).forEach(char => {
-                    const charSpan = document.createElement('span');
-                    charSpan.textContent = char;
-                    charSpan.className = 'lyric-char';
-                    wordSpan.appendChild(charSpan);
-                });
-                lineEl.appendChild(wordSpan);
-            });
-            wrapper.appendChild(lineEl);
+                Array.from(word).forEach(char => {
+                    const charSpan = document.createElement('span');
+                    charSpan.textContent = char;
+                    charSpan.className = 'lyric-char';
+                    wordSpan.appendChild(charSpan);
+                });
+                lineEl.appendChild(wordSpan);
+            });
+            wrapper.appendChild(lineEl);
 
-            const charDelay = 110; 
-            anime({
-                targets: lineEl.querySelectorAll('.lyric-char'),
-                opacity: [0, 1],
-                translateY: [10, 0],
-                delay: (el, i) => {
-                    if (text.startsWith("Chitra") && i >= 6) return (i * charDelay) + 2000;
-                    if (text.startsWith("I want you") && i >= 13) return (i * charDelay) + 2000;
-                    return i * charDelay;
-                },
-                easing: 'easeOutQuad',
-                duration: 600
-            });
+            const charDelay = 110; 
+            anime({
+                targets: lineEl.querySelectorAll('.lyric-char'),
+                opacity: [0, 1],
+                translateY: [10, 0],
+                delay: (el, i) => {
+                    if (text.startsWith("Chitra") && i >= 6) return (i * charDelay) + 2000;
+                    if (text.startsWith("I want you") && i >= 13) return (i * charDelay) + 2000;
+                    return i * charDelay;
+                },
+                easing: 'easeOutQuad',
+                duration: 600
+            });
 
-            const allWords = lineEl.querySelectorAll('.lyric-word');
-            allWords.forEach((w, idx) => {
-                let charCountBefore = 0;
-                for(let k=0; k<idx; k++) charCountBefore += wordsArr[k].length + 1;
-                let highlightDelay = charCountBefore * charDelay;
+            const allWords = lineEl.querySelectorAll('.lyric-word');
+            allWords.forEach((w, idx) => {
+                let charCountBefore = 0;
+                for(let k=0; k<idx; k++) charCountBefore += wordsArr[k].length + 1;
+                let highlightDelay = charCountBefore * charDelay;
 
-                if (text.startsWith("Chitra") && idx > 0) highlightDelay += 2000;
-                if (text.startsWith("I want you") && idx > 3) highlightDelay += 2000;
+                if (text.startsWith("Chitra") && idx > 0) highlightDelay += 2000;
+                if (text.startsWith("I want you") && idx > 3) highlightDelay += 2000;
 
-                highlightTimeouts.push(setTimeout(() => {
-                    if (lineEl.classList.contains('current-line')) {
-                        lineEl.querySelectorAll('.lyric-word.focused-word').forEach(oldW => {
-                            oldW.classList.remove('focused-word');
-                        });
-                        w.classList.add('focused-word');
-                    }
-                }, highlightDelay));
-            });
-        }
+                highlightTimeouts.push(setTimeout(() => {
+                    if (lineEl.classList.contains('current-line')) {
+                        lineEl.querySelectorAll('.lyric-word.focused-word').forEach(oldW => {
+                            oldW.classList.remove('focused-word');
+                        });
+                        w.classList.add('focused-word');
+                    }
+                }, highlightDelay));
+            });
+        }
 
-        audio.addEventListener('timeupdate', () => {
-            const index = lyrics.findLastIndex(l => l.time <= audio.currentTime);
-            if (index !== -1 && index !== currentLyricIndex) {
-                currentLyricIndex = index;
-                showLyric(lyrics[index].text, lyrics[index].mood);
-            }
-        });
+        audio.addEventListener('timeupdate', () => {
+            const index = lyrics.findLastIndex(l => l.time <= audio.currentTime);
+            if (index !== -1 && index !== currentLyricIndex) {
+                currentLyricIndex = index;
+                showLyric(lyrics[index].text, lyrics[index].mood);
+            }
+        });
 
-        // --- CHAT BUBBLES (Optimized for Mobile translateX) ---
-        let chatTriggered = false;
-        function triggerChatBubbles() {
-            const bubbles = document.querySelectorAll('#chat-tile .chat-bubble');
-            // Responsive slide distance (choti screen pe thoda kam slide hoga)
-            const slideDistance = window.innerWidth < 768 ? 30 : 60;
-            
-            bubbles.forEach((bubble, bIdx) => {
-                bubble.style.opacity = '0';
-                const originalText = bubble.innerText;
-                bubble.innerHTML = '';
-                
-                originalText.split(' ').forEach(word => {
-                    const span = document.createElement('span');
-                    span.className = 'chat-word';
-                    span.innerHTML = word + '&nbsp;';
-                    bubble.appendChild(span);
-                });
+        // --- CHAT BUBBLES (Optimized for Mobile translateX) ---
+        let chatTriggered = false;
+        function triggerChatBubbles() {
+            const bubbles = document.querySelectorAll('#chat-tile .chat-bubble');
+            // Responsive slide distance (choti screen pe thoda kam slide hoga)
+            const slideDistance = window.innerWidth < 768 ? 30 : 60;
+            
+            bubbles.forEach((bubble, bIdx) => {
+                bubble.style.opacity = '0';
+                const originalText = bubble.innerText;
+                bubble.innerHTML = '';
+                
+                originalText.split(' ').forEach(word => {
+                    const span = document.createElement('span');
+                    span.className = 'chat-word';
+                    span.innerHTML = word + '&nbsp;';
+                    bubble.appendChild(span);
+                });
 
-                anime({
-                    targets: bubble,
-                    opacity: [0, 1],
-                    translateX: bubble.classList.contains('chat-left') ? [-slideDistance, 0] : [slideDistance, 0],
-                    scale: [0.8, 1],
-                    delay: 2200 + (bIdx * 1400),
-                    duration: 1200,
-                    easing: 'easeOutElastic(1, .8)',
-                    complete: () => {
-                        anime({
-                            targets: bubble.querySelectorAll('.chat-word'),
-                            opacity: [0, 1],
-                            translateY: [5, 0],
-                            delay: anime.stagger(150),
-                            duration: 800,
-                            easing: 'easeOutQuad'
-                        });
-                    }
-                });
-            });
-        }
+                anime({
+                    targets: bubble,
+                    opacity: [0, 1],
+                    translateX: bubble.classList.contains('chat-left') ? [-slideDistance, 0] : [slideDistance, 0],
+                    scale: [0.8, 1],
+                    delay: 2200 + (bIdx * 1400),
+                    duration: 1200,
+                    easing: 'easeOutElastic(1, .8)',
+                    complete: () => {
+                        anime({
+                            targets: bubble.querySelectorAll('.chat-word'),
+                            opacity: [0, 1],
+                            translateY: [5, 0],
+                            delay: anime.stagger(150),
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                    }
+                });
+            });
+        }
 
-        // --- CAKE LOGIC WITH STRICT MIC CONTROL & HARD BLOW ---
-        let cakeStep = 0;
-        const cakeZone = document.getElementById('cake-interactive-zone');
-        const proFlame = document.getElementById('pro-flame');
-        const hint = document.getElementById('cake-hint');
-        const knife = document.getElementById('knife-3d');
-        const cakeLeft = document.querySelector('.cake-split-left');
-        const cakeRight = document.querySelector('.cake-split-right');
-        const candle = document.getElementById('main-candle');
-        const sparkEffect = document.getElementById('spark-effect');
-        const smokeContainer = document.getElementById('smoke-container');
+        // --- CAKE LOGIC WITH STRICT MIC CONTROL & HARD BLOW ---
+        let cakeStep = 0;
+        const cakeZone = document.getElementById('cake-interactive-zone');
+        const proFlame = document.getElementById('pro-flame');
+        const hint = document.getElementById('cake-hint');
+        const knife = document.getElementById('knife-3d');
+        const cakeLeft = document.querySelector('.cake-split-left');
+        const cakeRight = document.querySelector('.cake-split-right');
+        const candle = document.getElementById('main-candle');
+        const sparkEffect = document.getElementById('spark-effect');
+        const smokeContainer = document.getElementById('smoke-container');
 
-        // Audio variables
-        let audioContext;
-        let analyser;
-        let microphone;
-        let audioStream = null;
-        let micFallback = false;
+        // Audio variables
+        let audioContext;
+        let analyser;
+        let microphone;
+        let audioStream = null;
+        let micFallback = false;
 
-        function createSmoke() {
-            for (let i = 0; i < 5; i++) {
-                const smoke = document.createElement('div');
-                smoke.className = 'smoke-particle';
-                smokeContainer.appendChild(smoke);
+        function createSmoke() {
+            for (let i = 0; i < 5; i++) {
+                const smoke = document.createElement('div');
+                smoke.className = 'smoke-particle';
+                smokeContainer.appendChild(smoke);
 
-                anime({
-                    targets: smoke,
-                    translateX: [
-                        { value: '-50%', duration: 0 },
-                        { value: () => `calc(-50% + ${Math.random() * 40 - 20}px)`, duration: 1500 }
-                    ],
-                    translateY: [0, -100 - Math.random() * 50],
-                    scale: [1, 3 + Math.random() * 2],
-                    opacity: [0.6, 0],
-                    duration: 1500 + Math.random() * 1000,
-                    easing: 'easeOutSine',
-                    complete: () => smoke.remove()
-                });
-            }
-        }
+                anime({
+                    targets: smoke,
+                    translateX: [
+                        { value: '-50%', duration: 0 },
+                        { value: () => `calc(-50% + ${Math.random() * 40 - 20}px)`, duration: 1500 }
+                    ],
+                    translateY: [0, -100 - Math.random() * 50],
+                    scale: [1, 3 + Math.random() * 2],
+                    opacity: [0.6, 0],
+                    duration: 1500 + Math.random() * 1000,
+                    easing: 'easeOutSine',
+                    complete: () => smoke.remove()
+                });
+            }
+        }
 
-        function blowOutCandle() {
-            if (cakeStep !== 1) return;
-            
-            // Remove dark room effect
-            document.body.classList.remove('room-is-dark');
+        function blowOutCandle() {
+            if (cakeStep !== 1) return;
+            
+            // Remove dark room effect
+            document.body.classList.remove('room-is-dark');
 
-            anime({
-                targets: proFlame,
-                opacity: 0,
-                scaleY: 0,
-                duration: 300,
-                easing: 'easeInQuad',
-                complete: createSmoke
-            });
+            anime({
+                targets: proFlame,
+                opacity: 0,
+                scaleY: 0,
+                duration: 300,
+                easing: 'easeInQuad',
+                complete: createSmoke
+            });
 
-            hint.innerText = "Wow! Ab cake cut karo! 🔪 (Tap again)"; 
-            knife.classList.add('ready'); 
-            cakeStep = 2;
+            hint.innerText = "Wow! Ab cake cut karo! 🔪 (Tap again)"; 
+            knife.classList.add('ready'); 
+            cakeStep = 2;
 
-            // KILL MIC IMMEDIATELY AFTER BLOW OUT TO SAVE BATTERY & PRIVACY
-            if (audioStream) {
-                audioStream.getTracks().forEach(track => track.stop());
-                audioStream = null;
-            }
-            if (audioContext && audioContext.state !== 'closed') {
-                audioContext.close();
-            }
-        }
+            // KILL MIC IMMEDIATELY AFTER BLOW OUT TO SAVE BATTERY & PRIVACY
+            if (audioStream) {
+                audioStream.getTracks().forEach(track => track.stop());
+                audioStream = null;
+            }
+            if (audioContext && audioContext.state !== 'closed') {
+                audioContext.close();
+            }
+        }
 
-        async function startMicListener() {
-            try {
-                // High quality mic settings without processing for better raw volume
-                audioStream = await navigator.mediaDevices.getUserMedia({ 
-                    audio: {
-                        echoCancellation: false,
-                        autoGainControl: false,
-                        noiseSuppression: false
-                    } 
-                });
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                analyser = audioContext.createAnalyser();
-                microphone = audioContext.createMediaStreamSource(audioStream);
-                microphone.connect(analyser);
-                analyser.fftSize = 256;
-                const bufferLength = analyser.frequencyBinCount;
-                const dataArray = new Uint8Array(bufferLength);
+        async function startMicListener() {
+            try {
+                // High quality mic settings without processing for better raw volume
+                audioStream = await navigator.mediaDevices.getUserMedia({ 
+                    audio: {
+                        echoCancellation: false,
+                        autoGainControl: false,
+                        noiseSuppression: false
+                    } 
+                });
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                microphone = audioContext.createMediaStreamSource(audioStream);
+                microphone.connect(analyser);
+                analyser.fftSize = 256;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
 
-                function checkVolume() {
-                    if (cakeStep !== 1) return; 
-                    analyser.getByteFrequencyData(dataArray);
-                    let sum = 0;
-                    for (let i = 0; i < bufferLength; i++) { sum += dataArray[i]; }
-                    let average = sum / bufferLength;
+                function checkVolume() {
+                    if (cakeStep !== 1) return; 
+                    analyser.getByteFrequencyData(dataArray);
+                    let sum = 0;
+                    for (let i = 0; i < bufferLength; i++) { sum += dataArray[i]; }
+                    let average = sum / bufferLength;
 
-                    // Hard Blow Threshold (75) - Requires actual blowing, normal talking won't work
-                    if (average > 75) {
-                        blowOutCandle();
-                    } else {
-                        requestAnimationFrame(checkVolume);
-                    }
-                }
-                checkVolume();
-            } catch (err) {
-                console.log("Mic permission denied", err);
-                micFallback = true;
-                hint.innerText = "Koi baat nahi, ab screen par tap karke bujha do! 👆";
-            }
-        }
+                    // Hard Blow Threshold (75) - Requires actual blowing, normal talking won't work
+                    if (average > 75) {
+                        blowOutCandle();
+                    } else {
+                        requestAnimationFrame(checkVolume);
+                    }
+                }
+                checkVolume();
+            } catch (err) {
+                console.log("Mic permission denied", err);
+                micFallback = true;
+                hint.innerText = "Koi baat nahi, ab screen par tap karke bujha do! 👆";
+            }
+        }
 
-        // Main Tap Logic
-        cakeZone.addEventListener('click', (e) => {
-            if (cakeStep === 0) {
-                // Environment Darkens
-                document.body.classList.add('room-is-dark');
+        // Main Tap Logic
+        cakeZone.addEventListener('click', (e) => {
+            if (cakeStep === 0) {
+                // Environment Darkens
+                document.body.classList.add('room-is-dark');
 
-                // Lighting Spark Effect
-                anime({
-                    targets: sparkEffect,
-                    scale: [0, 2],
-                    opacity: [1, 0],
-                    duration: 600,
-                    easing: 'easeOutExpo'
-                });
-                
-                anime({
-                    targets: proFlame,
-                    opacity: [0, 1],
-                    scaleY: [0, 1],
-                    duration: 500,
-                    easing: 'easeOutBack'
-                });
+                // Lighting Spark Effect
+                anime({
+                    targets: sparkEffect,
+                    scale: [0, 2],
+                    opacity: [1, 0],
+                    duration: 600,
+                    easing: 'easeOutExpo'
+                });
+                
+                anime({
+                    targets: proFlame,
+                    opacity: [0, 1],
+                    scaleY: [0, 1],
+                    duration: 500,
+                    easing: 'easeOutBack'
+                });
 
-                if (!micFallback) {
-                    // Update text to instruct strong blow
-                    hint.innerText = "Ab JAAN LAGA KE phook maaro meri jaan! 🌬️"; 
-                    cakeStep = 1;
-                    startMicListener(); 
-                } else {
-                    hint.innerText = "Screen par tap karke candle bujha do meri jaan! 👆";
-                    cakeStep = 1;
-                }
-            } else if (cakeStep === 1 && micFallback) {
-                // Fallback: Agar mic permission nahi di toh tap se bujhegi
-                blowOutCandle();
-            } else if (cakeStep === 2) {
-                knife.classList.add('slicing');
-                anime({ targets: '#cake-anim-group', translateY: [0, 5, 0], duration: 300, easing: 'easeInOutQuad' });
-                setTimeout(() => {
-                    cakeLeft.style.transform = 'translateX(-30px) rotateY(-15deg)';
-                    cakeRight.style.transform = 'translateX(30px) rotateY(15deg)';
-                    candle.style.opacity = '0'; 
-                    document.getElementById('cake-final-msg').classList.remove('hidden');
-                    hint.style.opacity = '0';
-                    confetti({ particleCount: 300, spread: 100, origin: { y: 0.6 } });
-                    cakeStep = 3;
-                }, 300);
-            }
-        });
+                if (!micFallback) {
+                    // Update text to instruct strong blow
+                    hint.innerText = "Ab JAAN LAGA KE phook maaro meri jaan! 🌬️"; 
+                    cakeStep = 1;
+                    startMicListener(); 
+                } else {
+                    hint.innerText = "Screen par tap karke candle bujha do meri jaan! 👆";
+                    cakeStep = 1;
+                }
+            } else if (cakeStep === 1 && micFallback) {
+                // Fallback: Agar mic permission nahi di toh tap se bujhegi
+                blowOutCandle();
+            } else if (cakeStep === 2) {
+                knife.classList.add('slicing');
+                anime({ targets: '#cake-anim-group', translateY: [0, 5, 0], duration: 300, easing: 'easeInOutQuad' });
+                setTimeout(() => {
+                    cakeLeft.style.transform = 'translateX(-30px) rotateY(-15deg)';
+                    cakeRight.style.transform = 'translateX(30px) rotateY(15deg)';
+                    candle.style.opacity = '0'; 
+                    document.getElementById('cake-final-msg').classList.remove('hidden');
+                    hint.style.opacity = '0';
+                    confetti({ particleCount: 300, spread: 100, origin: { y: 0.6 } });
+                    cakeStep = 3;
+                }, 300);
+            }
+        });
 
-        // --- 42 REASONS ---
-        const reasonsArr = ["Your eyes", "Your hair", "Your lips", "Your name", "Your personality", "Your laugh", "Your smile", "Your voice", "Your hands", "Your embrace", "Your joy", "Your tears", "Your face", "Your kindness", "Your affection", "Our friendship", "Your beauty", "Your love", "Your hugs", "Your messages", "Your style", "Your forgiveness", "Your perfection", "The time we spend together", "The memories we made", "The sound of you", "Watching the videos you send me", "The jokes we make together", "How you make me happy within 276 zetroseconds", "The way you can love someone like me", "How I can talk to you and still not get bored", "The way we met somewhere and are so close now", "The thought of you", "The smell of you", "The selfishness", "Your strength (you are very strong >)", "Your bravery", "Your intelligence", "Your passion", "Your creativity", "Your patience", "Your respect"];
-        const grid = document.getElementById('reasons-grid');
-        reasonsArr.forEach((r, i) => {
-            const div = document.createElement('div');
-            div.className = 'card-glass p-4 text-center reveal text-xs md:text-sm';
-            div.innerHTML = `<span class="text-pink-400 font-bold block mb-1 uppercase text-[10px]">#${i+1}</span>${r}`;
-            grid.appendChild(div);
-        });
+        // --- 42 REASONS ---
+        const reasonsArr = ["huhh aap bacchi ho ", "Your hair", "Your lips", "Your name", "Your personality", "Your laugh", "Your smile", "Your voice", "Your hands", "Your embrace", "Your joy", "Your tears", "Your face", "Your kindness", "Your affection", "Our friendship", "Your beauty", "Your love", "Your hugs", "Your messages", "Your style", "Your forgiveness", "Your perfection", "The time we spend together", "The memories we made", "The sound of you", "Watching the videos you send me", "The jokes we make together", "How you make me happy within 276 zetroseconds", "The way you can love someone like me", "How I can talk to you and still not get bored", "The way we met somewhere and are so close now", "The thought of you", "The smell of you", "The selfishness", "Your strength (you are very strong >)", "Your bravery", "Your intelligence", "Your passion", "Your creativity", "Your patience", "Your respect"];
+        const grid = document.getElementById('reasons-grid');
+        reasonsArr.forEach((r, i) => {
+            const div = document.createElement('div');
+            div.className = 'card-glass p-4 text-center reveal text-xs md:text-sm';
+            div.innerHTML = `<span class="text-pink-400 font-bold block mb-1 uppercase text-[10px]">#${i+1}</span>${r}`;
+            grid.appendChild(div);
+        });
 
-        // --- DODGING BUTTON (MOBILE OPTIMIZED) ---
-        const noBtn = document.getElementById('no-btn');
-        
-        const moveNoBtn = (e) => {
-            if(e) e.preventDefault();
-            
-            // Mobile par kam move karega (max 60px), PC par zyada (max 150px)
-            const safeRadius = window.innerWidth < 768 ? 60 : 150;
-            const x = (Math.random() - 0.5) * safeRadius * 2; 
-            const y = (Math.random() - 0.5) * safeRadius * 2;
-            
-            noBtn.style.transform = `translate(${x}px, ${y}px)`;
-            noBtn.innerText = "Koshish karle! 😂";
-        };
+        // --- DODGING BUTTON (MOBILE OPTIMIZED) ---
+        const noBtn = document.getElementById('no-btn');
+        
+        const moveNoBtn = (e) => {
+            if(e) e.preventDefault();
+            
+            // Mobile par kam move karega (max 60px), PC par zyada (max 150px)
+            const safeRadius = window.innerWidth < 768 ? 60 : 150;
+            const x = (Math.random() - 0.5) * safeRadius * 2; 
+            const y = (Math.random() - 0.5) * safeRadius * 2;
+            
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+            noBtn.innerText = "Koshish karle! 😂";
+        };
 
-        // Hover for PC, Touchstart for Mobile
-        noBtn.addEventListener('mouseover', moveNoBtn);
-        noBtn.addEventListener('touchstart', moveNoBtn, {passive: false});
+        // Hover for PC, Touchstart for Mobile
+        noBtn.addEventListener('mouseover', moveNoBtn);
+        noBtn.addEventListener('touchstart', moveNoBtn, {passive: false});
 
-        document.getElementById('yes-btn').addEventListener('click', () => {
-            document.getElementById('btn-container').style.display = 'none';
-            document.getElementById('proposal-question').style.display = 'none';
-            const msg = document.getElementById('response-msg');
-            msg.classList.remove('hidden'); msg.style.opacity = "1";
-            confetti({ particleCount: 1500, spread: 200, origin: { y: 0.5 } });
-        });
+        document.getElementById('yes-btn').addEventListener('click', () => {
+            document.getElementById('btn-container').style.display = 'none';
+            document.getElementById('proposal-question').style.display = 'none';
+            const msg = document.getElementById('response-msg');
+            msg.classList.remove('hidden'); msg.style.opacity = "1";
+            confetti({ particleCount: 1500, spread: 200, origin: { y: 0.5 } });
+        });
 
-        // --- REVEAL & UPFRONT MIC PERMISSION ---
-        document.getElementById('magic-btn').addEventListener('click', () => {
-            document.getElementById('landing-step-1').style.display = 'none';
-            document.getElementById('landing-step-2').classList.remove('hidden');
-            document.getElementById('landing-step-2').classList.add('flex');
-        });
+        // --- REVEAL & UPFRONT MIC PERMISSION ---
+        document.getElementById('magic-btn').addEventListener('click', () => {
+            document.getElementById('landing-step-1').style.display = 'none';
+            document.getElementById('landing-step-2').classList.remove('hidden');
+            document.getElementById('landing-step-2').classList.add('flex');
+        });
 
-        document.getElementById('allow-mic-btn').addEventListener('click', () => {
-            // Yahan start mein hi permission le lenge
-            navigator.mediaDevices.getUserMedia({ 
-                audio: {
-                    echoCancellation: false,
-                    autoGainControl: false,
-                    noiseSuppression: false
-                } 
-            })
-            .then(stream => {
-                // Permission milte hi stream stop kar do, mic sirf cake ke time proper start hoga
-                stream.getTracks().forEach(track => track.stop());
-                micFallback = false;
-                startMagicalExperience();
-            })
-            .catch(err => {
-                console.log("Mic denied early", err);
-                micFallback = true; // Agar deny kiya, toh tap fallback chalega
-                startMagicalExperience();
-            });
-        });
+        document.getElementById('allow-mic-btn').addEventListener('click', () => {
+            // Yahan start mein hi permission le lenge
+            navigator.mediaDevices.getUserMedia({ 
+                audio: {
+                    echoCancellation: false,
+                    autoGainControl: false,
+                    noiseSuppression: false
+                } 
+            })
+            .then(stream => {
+                // Permission milte hi stream stop kar do, mic sirf cake ke time proper start hoga
+                stream.getTracks().forEach(track => track.stop());
+                micFallback = false;
+                startMagicalExperience();
+            })
+            .catch(err => {
+                console.log("Mic denied early", err);
+                micFallback = true; // Agar deny kiya, toh tap fallback chalega
+                startMagicalExperience();
+            });
+        });
 
-        function startMagicalExperience() {
-            audio.play().catch(e => console.log(e));
-            document.getElementById('landing-page').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('landing-page').style.display = 'none';
-                document.getElementById('main-content').classList.remove('hidden');
-                document.getElementById('lyrics-container').style.display = 'block';
-                setTimeout(() => { document.getElementById('main-content').style.opacity = '1'; }, 50);
-            }, 1000);
-        }
+        function startMagicalExperience() {
+            audio.play().catch(e => console.log(e));
+            document.getElementById('landing-page').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('landing-page').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+                document.getElementById('lyrics-container').style.display = 'block';
+                setTimeout(() => { document.getElementById('main-content').style.opacity = '1'; }, 50);
+            }, 1000);
+        }
 
-        // --- PERFORMANCE FIX: IntersectionObserver ---
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const el = entry.target;
-                    el.classList.add('active');
-                    
-                    if (el.id === 'chat-tile' && !chatTriggered) {
-                        chatTriggered = true;
-                        triggerChatBubbles();
-                    }
+        // --- PERFORMANCE FIX: IntersectionObserver ---
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const el = entry.target;
+                    el.classList.add('active');
+                    
+                    if (el.id === 'chat-tile' && !chatTriggered) {
+                        chatTriggered = true;
+                        triggerChatBubbles();
+                    }
 
-                    if(el.classList.contains('silk-reveal') || el.querySelector('.silk-reveal')) {
-                        const target = el.classList.contains('silk-reveal') ? el : el.querySelector('.silk-reveal');
-                        if(!target.dataset.done) {
-                            target.dataset.done = "true";
-                            const txt = target.dataset.text; target.innerHTML = '';
-                            txt.split(' ').forEach((w, i) => {
-                                const s = document.createElement('span'); s.innerHTML = w + '&nbsp;'; s.style.opacity = '0'; s.style.display = 'inline-block';
-                                target.appendChild(s);
-                                anime({ targets: s, opacity: 1, translateY: [10, 0], filter: ['blur(3px)', 'blur(0px)'], delay: i * 80, duration: 800 });
-                            });
-                        }
-                    }
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.02 }); // Threshold kam kar diya taaki jaldi trigger ho jaye
+                    if(el.classList.contains('silk-reveal') || el.querySelector('.silk-reveal')) {
+                        const target = el.classList.contains('silk-reveal') ? el : el.querySelector('.silk-reveal');
+                        if(!target.dataset.done) {
+                            target.dataset.done = "true";
+                            const txt = target.dataset.text; target.innerHTML = '';
+                            txt.split(' ').forEach((w, i) => {
+                                const s = document.createElement('span'); s.innerHTML = w + '&nbsp;'; s.style.opacity = '0'; s.style.display = 'inline-block';
+                                target.appendChild(s);
+                                anime({ targets: s, opacity: 1, translateY: [10, 0], filter: ['blur(3px)', 'blur(0px)'], delay: i * 80, duration: 800 });
+                            });
+                        }
+                    }
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.02 }); // Threshold kam kar diya taaki jaldi trigger ho jaye
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        function createHeart() {
-            // Memory lag theek karne ke max limit kam ki
-            if (document.querySelectorAll('.heart').length > 15) return;
+        function createHeart() {
+            // Memory lag theek karne ke max limit kam ki
+            if (document.querySelectorAll('.heart').length > 15) return;
 
-            const container = document.getElementById('hearts-container');
-            if (!container) return;
+            const container = document.getElementById('hearts-container');
+            if (!container) return;
 
-            const h = document.createElement('div');
-            h.innerHTML = Math.random() > 0.5 ? '💖' : '❤️';
-            h.className = 'heart';
-            // Edge overlap theek kiya (2vw to 92vw tak rakha bas)
-            h.style.left = (Math.random() * 90 + 2) + 'vw';
-            h.style.fontSize = Math.random() * 20 + 20 + 'px';
-            
-            const animDuration = Math.random() * 7 + 5;
-            h.style.animationDuration = animDuration + 's';
-            
-            // Lag Fix: Use translate3d
-            h.style.transform = `translate3d(0, 110vh, 0)`;
-            
-            container.appendChild(h);
-            
-            // Trigger animation in next frame
-            requestAnimationFrame(() => {
-                h.style.transform = `translate3d(${Math.random() * 40 - 20}px, -20vh, 0)`;
-                h.style.transition = `transform ${animDuration}s linear, opacity ${animDuration}s linear`;
-                h.style.opacity = '0';
-            });
-            
-            setTimeout(() => { if (h && h.parentNode) h.remove(); }, animDuration * 1000);
-        }
-        // Spawn interval badha diya taaki battery kam khaye mobile pe
-        setInterval(createHeart, 1000);
-    </script>
+            const h = document.createElement('div');
+            h.innerHTML = Math.random() > 0.5 ? '💖' : '❤️';
+            h.className = 'heart';
+            // Edge overlap theek kiya (2vw to 92vw tak rakha bas)
+            h.style.left = (Math.random() * 90 + 2) + 'vw';
+            h.style.fontSize = Math.random() * 20 + 20 + 'px';
+            
+            const animDuration = Math.random() * 7 + 5;
+            h.style.animationDuration = animDuration + 's';
+            
+            // Lag Fix: Use translate3d
+            h.style.transform = `translate3d(0, 110vh, 0)`;
+            
+            container.appendChild(h);
+            
+            // Trigger animation in next frame
+            requestAnimationFrame(() => {
+                h.style.transform = `translate3d(${Math.random() * 40 - 20}px, -20vh, 0)`;
+                h.style.transition = `transform ${animDuration}s linear, opacity ${animDuration}s linear`;
+                h.style.opacity = '0';
+            });
+            
+            setTimeout(() => { if (h && h.parentNode) h.remove(); }, animDuration * 1000);
+        }
+        // Spawn interval badha diya taaki battery kam khaye mobile pe
+        setInterval(createHeart, 1000);
+    </script>
 </body>
 </html>
